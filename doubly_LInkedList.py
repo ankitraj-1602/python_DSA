@@ -30,7 +30,8 @@ class doublyLinkedList:
         new_node.prev = n
   
     
-    
+      
+                    
     def Display(self):
         if self.start_node is None:
             print("The list is empty")
@@ -72,8 +73,29 @@ class doublyLinkedList:
                 lastNode = temp.next
                 temp.next = None
                 lastNode = None
+    def deleteNodeAtGivenPos(head_ref,n):
+        if (head_ref == None or n <= 0):
+            return
+        current = head_ref
+        i = 1
+        while ( current != None and i < n ):
+            current = current.next
+            i = i + 1
+        if (current == None):
+            return
+ 
+    '
+    
+     
+    return head_ref
+
+
+
+
+    
 x=doublyLinkedList()
 x.InsertToEmptyList(33)
 x.inert_at_pos(45,2)
-x.delete_last()
+# x.delete_last()
+x.deleteFromStart()
 x.Display()
