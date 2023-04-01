@@ -28,3 +28,35 @@
 #  above program
 
 
+
+
+
+
+
+
+class BakeHouse:
+    def __init__(self, total_tables):
+        self.total_tables = total_tables
+        self.occupied_table_list = list(range(1, total_tables + 1))
+
+    def get_occupied_table_list(self):
+        return self.occupied_table_list
+
+    def allocate_table(self):
+        if len(self.occupied_table_list) == 0:
+            return None
+        else:
+            table_number = self.occupied_table_list[0]
+            self.occupied_table_list = self.occupied_table_list[1:]
+            return table_number
+
+    def deallocate_table(self, table_number):
+        if table_number not in range(1, self.total_tables + 1):
+            return False
+        elif table_number in self.occupied_table_list:
+            return False
+        else:
+            self.occupied_table_list.append(table_number)
+            self.occupied_table_list.sort()
+            return True
+
